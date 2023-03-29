@@ -27,7 +27,7 @@ const Login = () => {
           Username
         </label>
         <input
-          className="text-start pl-2 my-2 w-4/5"
+          className="text-start pl-2 my-2 w-4/5 border border-black"
           placeholder="Email or Phone"
           id="username"
           onChange={(e) => handleUsernameChange(e)}
@@ -36,7 +36,7 @@ const Login = () => {
           Password
         </label>
         <input
-          className="text-start pl-2 my-2 w-4/5"
+          className="text-start pl-2 my-2 w-4/5 border border-black"
           type="password"
           id="password"
           onChange={(e) => handlePasswordChange(e)}
