@@ -17,7 +17,7 @@ const Login = () => {
     setPassword(val);
   };
   return (
-    <form className="flex flex-col w-3/12 h-4/6 p-4 items-center justify-start opacity-60 rounded-md shadow-lg shadow-black backdrop-blur-sm border">
+    <form className="flex flex-col w-3/12 h-4/6 p-4 items-center justify-start bg-white opacity-80 rounded-md shadow-lg shadow-black backdrop-blur-sm border">
       <div className="w-4/5 py-8 px-4 bg-white border shadow-lg shadow-black flex flex-col items-center justify-evenly mt-2 mb-4">
         <h3 className="font-bold text-2xl">Login Here</h3>
       </div>

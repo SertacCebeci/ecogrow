@@ -8,8 +8,8 @@ export default function Home() {
       <Head>
         <title>EcoGrow</title>
       </Head>
-      <main className="flex flex-col items-center justify-start w-full h-screen font-sans">
-        home
+      <main className="flex flex-col items-center justify-center w-full h-screen bg-gradient-to-r from-green-400 to-green-100">
+        Home Page
       </main>
     </>
   );

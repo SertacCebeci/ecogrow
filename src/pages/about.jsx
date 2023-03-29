@@ -7,7 +7,9 @@ export default function Home() {
       <Head>
         <title>About</title>
       </Head>
-      <main className="flex flex-col items-center justify-start w-full h-screen font-sans"></main>
+      <main className="flex flex-col items-center justify-center w-full h-screen bg-gradient-to-r from-green-400 to-green-100">
+        About Page
+      </main>
     </>
   );
 }
