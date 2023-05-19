@@ -1,0 +1,8 @@
+export default async function handler(req, res) {
+  const result = {
+    _id: { $oid: "64455fb5d63f1711a29be0fc" },
+    products: [{ $oid: "64455fc5d63f1711a29be0fd" }],
+  };
+
+  res.status(200).json(result);
+}

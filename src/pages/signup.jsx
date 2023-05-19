@@ -1,10 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 import React from "react";
-import logIn from "@/firebase/auth/login";
+import signUp from "@/firebase/auth/signup";
 import { useRouter } from "next/navigation";
+import addData from "@/firebase/firestore/addData";
+// Add a second document with a generated ID.
+import { addDoc, collection } from "firebase/firestore";
 
-export default function Login() {
+export default function Signup() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const router = useRouter();
@@ -12,14 +15,26 @@ export default function Login() {
   const handleForm = async (event) => {
     event.preventDefault();
 
-    const { result, error } = await logIn(email, password);
+    const { result, error } = await signUp(email, password);
 
     if (error) {
       return console.log(error);
     }
 
+    try {
+      const docRef = await addDoc(collection(db, "users"), {
+        first: "Alan",
+        middle: "Mathison",
+        last: "Turing",
+        born: 1912,
+      });
+
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+
     // else successful
-    console.log(result);
     return router.push("/product");
   };
 
@@ -34,7 +49,7 @@ export default function Login() {
           id="header"
           className="flex items-end justify-center w-full h-1/6 "
         >
-          <p className="text-6xl font-bold">Login</p>
+          <p className="text-6xl font-bold">SignUp</p>
         </div>
 
         <div className="flex flex-col items-center justify-center w-full h-2/6 ">
@@ -47,7 +62,7 @@ export default function Login() {
           <div className="w-2/3 h-1/3 flex flex-col items-center justify-evenly">
             <form
               onSubmit={handleForm}
-              class="space-y-4 md:space-y-6 py-4"
+              className="space-y-4 md:space-y-6 py-4"
               action="#"
             >
               <div>
@@ -70,7 +85,7 @@ export default function Login() {
               <div>
                 <label
                   htmlFor="password"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
                   Password
                 </label>
@@ -80,7 +95,7 @@ export default function Login() {
                   id="password"
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required=""
                 />
               </div>
