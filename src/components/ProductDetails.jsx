@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import getData from "@/firebase/firestore/getData";
 
+//            src={"data:image/gif;base64," + measurement["String Photo"]}
+
 const ProductDetails = () => {
   const interval = 30;
   const [measurement, setMeasurement] = useState({});
@@ -31,7 +33,7 @@ const ProductDetails = () => {
         </p>
         <div className="m-4">
           <Image
-            src={"data:image/gif;base64," + measurement["String Photo"]}
+            src="/taken.jpeg"
             width={400}
             height={500}
             alt="Picture of the author"
