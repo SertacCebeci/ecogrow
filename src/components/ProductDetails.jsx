@@ -37,23 +37,32 @@ const ProductDetails = () => {
             alt="Picture of the author"
           />
         </div>
-        <div className="flex flex-col md:flex-row  items-center justify-around my-6 w-9/12">
-          <p className="text-xl my-1">
-            <span className="font-bold ">Ec: </span>
-            <span className="font-bold text-green-900">
-              {measurement.Ec} ppm
-            </span>
-          </p>
-          <p className="text-xl my-1">
-            <span className="font-bold">pH: </span>
-            <span className="font-bold text-green-900">{measurement.ph}</span>
-          </p>
-          <p className="text-xl my-1">
-            <span className="font-bold">Water Height: </span>
-            <span className="font-bold text-green-900">
-              {1023 - measurement.height}
-            </span>
-          </p>
+        <div className="flex flex-col  items-center justify-around my-6 w-9/12">
+          <div>
+            <p className="text-xl my-1">
+              <span className="font-bold text-green-900">
+                {measurement.name}
+              </span>
+            </p>
+          </div>
+          <div className="flex flex-row  items-center justify-around my-6 w-full">
+            <p className="text-xl my-1">
+              <span className="font-bold ">Ec: </span>
+              <span className="font-bold text-green-900">
+                {measurement.Ec} ppm
+              </span>
+            </p>
+            <p className="text-xl my-1">
+              <span className="font-bold">pH: </span>
+              <span className="font-bold text-green-900">{measurement.ph}</span>
+            </p>
+            <p className="text-xl my-1">
+              <span className="font-bold">Water Height: </span>
+              <span className="font-bold text-green-900">
+                {1023 - measurement.height}
+              </span>
+            </p>
+          </div>
         </div>
         <div>
           <p className="font-bold md:text-xl text-center">{`Snapshot interval ${interval} minutes`}</p>
